@@ -1,0 +1,79 @@
+{
+  "info": {
+    "_postman_id": "54d07473-a587-4f2d-a858-57f76fca1100",
+    "name": "Task1 API Key Rate Limiting",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Credential",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api-key",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api-key"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Protected Data",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "{{api_key}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/data",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "data"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Usage Summary",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "{{api_key}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/usage",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "usage"
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000"
+    },
+    {
+      "key": "api_key",
+      "value": ""
+    }
+  ]
+}
